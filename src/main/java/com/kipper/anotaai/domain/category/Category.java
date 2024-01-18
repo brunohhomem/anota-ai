@@ -17,4 +17,10 @@ public class Category {
     private String title;
     private String description;
     private String ownerId;
+
+    public Category(CategoryDTO data){
+        title = data.title();
+        description = data.description();
+        ownerId = data.ownerId();
+    }
 }
