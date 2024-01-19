@@ -20,4 +20,11 @@ public class Product {
     private String ownerId;
     private Integer price;
     private Category category;
+
+    public Product(ProductDTO data){
+        title = data.title();
+        description = data.description();
+        ownerId = data.ownerId();
+        price = data.price();
+    }
 }

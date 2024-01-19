@@ -7,6 +7,7 @@ import com.kipper.anotaai.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -20,6 +21,7 @@ public class CategoryService {
     public List<Category> getAll() {
         return repository.findAll();
     }
+    public Optional<Category> getById(String id) {return repository.findById(id);}
 
     public Category insert(CategoryDTO data){
         Category newCat = new Category(data);
