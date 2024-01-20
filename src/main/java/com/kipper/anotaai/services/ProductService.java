@@ -39,7 +39,7 @@ public class ProductService {
         this.categoryService.getById(data.categoryId()).ifPresent(product::setCategory);
 
         if(!data.title().isEmpty()) product.setTitle(data.title());
-        if(!data.description().isEmpty()) product.setDescription(data.title());
+        if(!data.description().isEmpty()) product.setDescription(data.description());
         if(!(data.price() == null)) product.setPrice(data.price());
 
         repository.save(product);

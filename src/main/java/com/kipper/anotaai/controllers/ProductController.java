@@ -3,7 +3,6 @@ package com.kipper.anotaai.controllers;
 import com.kipper.anotaai.domain.product.Product;
 import com.kipper.anotaai.domain.product.ProductDTO;
 import com.kipper.anotaai.services.ProductService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +31,13 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> update(@PathParam("id") String id, @RequestBody ProductDTO data){
+    public ResponseEntity<Product> update(@PathVariable String id, @RequestBody ProductDTO data){
         Product updateProduct = this.service.update(id,data);
         return ResponseEntity.ok().body(updateProduct);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Product> delete(@PathParam("id") String id){
+    public ResponseEntity<Product> delete(@PathVariable String id){
         this.service.delete(id);
         return ResponseEntity.noContent().build();
     }

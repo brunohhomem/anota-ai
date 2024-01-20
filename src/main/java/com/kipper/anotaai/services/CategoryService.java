@@ -33,7 +33,7 @@ public class CategoryService {
         Category cat = this.repository.findById(id).orElseThrow(CategoryNotFoundException::new);
 
         if(!data.title().isEmpty()) cat.setTitle(data.title());
-        if(!data.description().isEmpty()) cat.setDescription(data.title());
+        if(!data.description().isEmpty()) cat.setDescription(data.description());
 
         repository.save(cat);
         return cat;

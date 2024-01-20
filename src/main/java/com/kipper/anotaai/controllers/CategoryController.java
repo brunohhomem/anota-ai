@@ -3,7 +3,6 @@ package com.kipper.anotaai.controllers;
 import com.kipper.anotaai.domain.category.Category;
 import com.kipper.anotaai.domain.category.CategoryDTO;
 import com.kipper.anotaai.services.CategoryService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +31,13 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Category> update(@PathParam("id") String id, @RequestBody CategoryDTO data){
+    public ResponseEntity<Category> update(@PathVariable String id, @RequestBody CategoryDTO data){
         Category updateCat = this.service.update(id,data);
         return ResponseEntity.ok().body(updateCat);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Category> delete(@PathParam("id") String id){
+    public ResponseEntity<Category> delete(@PathVariable String id){
         this.service.delete(id);
         return ResponseEntity.noContent().build();
     }
